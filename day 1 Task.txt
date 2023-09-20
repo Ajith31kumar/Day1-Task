@@ -1,0 +1,130 @@
+ What is the HTTP/1.1?   
+   1. Year : 1997 
+
+   2. key feature :
+                  * It supports connection reuse i.e.
+                      for every TCP connection there could be multiple requests and responses,
+                      and pipelining where the client can request several
+                      resources from the server at once.
+                  * However, pipelining was hard to implement due to issues such as 
+                      head-of-line blocking and was not a feasible solution.
+  3.Status Code:  
+                  * Introduces a warning header field to carry
+                     additional information about the status of a message.
+                     Can define 24 status codes, error reporting is quicker
+                     and more efficient.                                    
+ 4.Authentication
+      Mechanism:
+                  * Uses basic authentication scheme which is unsafe since 
+                     username and passwords are transmitted in clear text or base64 encoded.   
+ 5.Caching:
+                  * Expands on the caching support by using additional headers like cache-control, conditional headers like If-Match and by using entity tags.
+ 6.Web  
+                  * HTTP/1.1 provides faster delivery of web pages and reduces web traffic as compared to HTTP/1.0. 
+                     However, TCP starts slowly and with domain sharding (resources can be downloaded simultaneously by using multiple domains),
+                     connection reuse and pipelining, there is an increased risk of network congestion.  
+
+What is the HTTP/2?
+  1. Year :  2015   
+  
+  2. key feature :
+                  * Uses multiplexing, where over a single TCP connection resources to be delivered
+                     are interleaved and arrive at the client almost at the same time. 
+                  * It is done using streams which can be prioritized, can have dependencies and individual flow control. 
+                  * It also provides a feature called server push that allows
+                     the server to send data that the client will need but has not yet requested.   
+  3.Status Code:
+                  * Underlying semantics of HTTP such as headers, status codes remains the same.
+  4.Authentication
+      Mechanism:
+                  * Security concerns from previous versions will continue to be seen in HTTP/2.
+                  * However, it is better equipped to deal with them due to new TLS features like connection error of type Inadequate_Security.
+
+   5.Caching:    
+                 * HTTP/2 does not change much in terms of caching. 
+                 * With the server push feature if the client finds the resources are already present in the cache, it can cancel the pushed stream.
+
+
+  6.Web traffic :
+                 *HTTP/2 utilizes multiplexing and server push to effectively reduce the page load time
+                   by a greater margin along with being less sensitive to network delays.
+ 
+                                              write a blog on difference between HTTP1.1 vs HTTP2
+
+
+ HTTP1.1                                                                                                       
+    
+    1. It works on the textual format.
+    2. There is head of line blocking that blocks all the requests behind it until it doesn’t get its all resources.
+    3. It uses requests resource Inlining for use getting multiple pages  
+    4. It compresses data by itself.                                                                                                            
+    5.For better understanding, let’s assume the situation
+      when you make a request to the server .
+    6.For better understanding, let’s assume the situation  
+      when you make a request to the server for.
+    7.Before sending the request and the response there is
+      a TCP connection established between client & server. 
+    8.Again you make a request to the server for image img.jpg & the 
+      server gives a response as an image img.jpg.
+      the connection was not lost here after the first request because we 
+      add a keep-alive header which is the part of the request so
+      there is an open connection between the server & client.
+    9.There is a persistent connection which means several
+      requests & responses are merged in a single connection.
+   10.These are the drawbacks that lead to the creation of HTTP/2:
+   11.The first problem is HTTP/1.1 transfer all the requests & responses 
+      in the plain text message form. 
+   12.The second one is head of line blocking in which TCP connection
+      is blocked all other requests until the response does not receive.         
+     
+  13. All the information related to the header file is repeated in every request.      
+
+ HTTP2
+     1.It works on the binary protocol.
+     2.It allows multiplexing so one TCP connection is required for multiple requests.
+     3.It allows multiplexing so one TCP connection is required for multiple requests.
+     4.It uses HPACK for data compression.
+     5.HTTP/2 was developed over the SPDY protocol.
+     6.HTTP/2 works on the binary framing layer instead of textual that
+       converts all the messages in binary format.
+     7.It works on fully multiplexed that is one TCP connection is used for multiple requests. 
+     8.HTTP/2 uses HPACK which is used to split data from header.
+     9.It compresses the header. 
+    10.The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
+
+                                                   2. Write a blog about objects and its internal representation in Javascript
+                                                    
+                                                              Objects, in JavaScript, are the most important data type and form the building blocks for modern 
+                                                              JavaScript.These objects are quite different from JavaScript’s primitive data types 
+                                                              (Number, String, Boolean, null, undefined, and symbol) in the sense that these primitive data types all s                                                                                                                                                                                       
+                                                              store a single value each (depending on their types).
+
+                                                           Syntax:
+
+                                                               new Object(value)
+
+                                                               Object(value)
+
+                                                               let object_name = {
+                                                                key_name : value,
+
+                                                                   ...
+                                                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
